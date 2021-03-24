@@ -1,25 +1,24 @@
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, Button, Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import Header from './components/Header';
 import { list } from './data/words'
 
-var selected;
+export var selected;
 
 function App() {
   const [current, setCurrent] = useState([])
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     selected = list[Math.floor(Math.random() * list.length)];
-    setCurrent(selected);
-    console.log(current);
+    setCurrent(selected.toLowerCase().charAt(0).toUpperCase() + selected.toLowerCase().slice(1));
   }
 
   return (
-    <Container className='d-flex flex-column justify-content-center text-align-center p-0 m-0' style={{minWidth: "100vw", minHeight: "100vh", backgroundColor: "black"}}>
+    <Container className='d-flex flex-column align-center align-items-center justify-content-center' style={{minWidth: "100vw", minHeight: "100vh", backgroundColor: "black"}}>
       <Header/>
-      <h2 className="text-center" style={{fontSize: 60}}>{selected}</h2>
-      <Button onClick={handleClick} style={{height: "50px", marginLeft: 600, marginRight: 600}}>Generate random word</Button>
+      <h2 className="text-center" style={{fontSize: 60, color: "white", padding: 50}}>{current}</h2>
+      <Button onClick={handleClick} style={{height: "50px", maxWidth: "350px"}}>Generate random word</Button>
     </Container>
   );
 }
