@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card, Button, Container } from 'react-bootstrap';
+import Header from './components/Header';
+import { list } from './data/words'
+
+var selected;
 
 function App() {
+  const [current, setCurrent] = useState([])
+
+  const handleClick = (e) => {
+    selected = list[Math.floor(Math.random() * list.length)];
+    setCurrent(selected);
+    console.log(current);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className='d-flex flex-column justify-content-center text-align-center p-0 m-0' style={{minWidth: "100vw", minHeight: "100vh", backgroundColor: "black"}}>
+      <Header/>
+      <h2 className="text-center" style={{fontSize: 60}}>{selected}</h2>
+      <Button onClick={handleClick} style={{height: "50px", marginLeft: 600, marginRight: 600}}>Generate random word</Button>
+    </Container>
   );
 }
 
