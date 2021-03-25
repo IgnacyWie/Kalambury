@@ -18,7 +18,7 @@ function App() {
     <Container className='d-flex flex-column align-center align-items-center justify-content-center' style={{minWidth: "100vw", minHeight: "100vh", backgroundColor: "black"}}>
       <Header/>
       <h2 className="text-center" style={{fontSize: 60, color: "white", padding: 50}}>{current}</h2>
-      <Button onClick={handleClick} style={{height: "50px", maxWidth: "350px"}}>Generate random word</Button>
+      <Button onClick={handleClick} style={{height: "50px", maxWidth: "350px"}}>Generuj Słowo</Button>
     </Container>
   );
 }
