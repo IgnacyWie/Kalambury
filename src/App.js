@@ -7,12 +7,12 @@ import { list } from './data/words'
 export var selected;
 
 function App() {
-  const [current, setCurrent] = useState([])
+  const [current, setCurrent] = useState([]);
 
   const handleClick = () => {
     selected = list[Math.floor(Math.random() * list.length)];
     setCurrent(selected.toLowerCase().charAt(0).toUpperCase() + selected.toLowerCase().slice(1));
-  }
+  };
 
   return (
     <Container className='d-flex flex-column align-center align-items-center justify-content-center' style={{minWidth: "100vw", minHeight: "100vh", backgroundColor: "black"}}>
